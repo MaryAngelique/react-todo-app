@@ -6,7 +6,15 @@ function Todo() {
 
     return (
         <div>
-            
+            <input
+                type = "text"
+                name = "text"
+                id = "text"
+                placeholder = "Create a Task here..."
+            />
+            <button className = "addBtn">Add Task</button>
         </div>
     )
 }
+
+export default Todo;
