@@ -9,6 +9,7 @@ function Todo() {
         setTask(event.target.value);
     }
 
+    // Handle Submit
     const handleSubmit = (event) => {
         if (task !== "") {
             const taskDetails = {
@@ -19,8 +20,13 @@ function Todo() {
 
             setTaskList([...taskList, taskDetails]);
         }
-    };
+    }
 
+    // Completed task
+    const taskCompleted = (event, id) => {
+        event.preventDefault();
+        setTaskList(taskList.filter)
+    }
 
     return (
         <div>
@@ -32,6 +38,20 @@ function Todo() {
                 onChange = { (event) => handleChange }
             />
             <button className = "addBtn" onClick = {handleSubmit}>Add Task</button>
+
+            {taskList !== [] ? (
+                <ul>
+                    {taskList.map((tsk) => (
+                        <li className = {tsk.isCompleted ? "strike" : "listItem"}>
+                            {tsk.value}
+                            <button className = "completed">Completed</button>
+                            <button className = "delete">Delete</button>
+                        </li>
+                        
+                    ))}
+
+                </ul>
+            ): null}
         </div>
     )
 }
